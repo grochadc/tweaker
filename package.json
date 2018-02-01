@@ -1,0 +1,22 @@
+{
+  "name": "tweaker",
+  "version": "0.0.1",
+  "description": "A command line tweak installer for electra.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cmd",
+    "tweak",
+    "ios",
+    "jailbreak",
+    "electra"
+  ],
+  "author": "Gonzalo Rocha",
+  "license": "ISC",
+  "dependencies": {
+    "node-ssh": "^5.1.0",
+    "yargs": "^11.0.0"
+  }
+}
