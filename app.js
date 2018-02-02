@@ -10,4 +10,5 @@ const yargs = require('yargs')
 
 const extract = require('./lib/extract.js');
 
+console.log('Call extract from app.js');
 extract.deb('tweak.deb', 'tmp');
