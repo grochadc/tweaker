@@ -1,11 +1,13 @@
-const node-ssh = require('node-ssh');
-const node-7z = require('node-7z');
-const fs = require('fs');
+const nodessh = require('node-ssh');
 const path = require('path');
-const ssh = new node-ssh();
+const ssh = new nodessh();
 
 const yargs = require('yargs')
 .usage('[]')
   .command(
-    '*',
-  ).argv
+    '*'
+  ).argv;
+
+const extract = require('./lib/extract.js');
+
+extract('tweak.deb');
