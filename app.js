@@ -1,6 +1,8 @@
 const nodessh = require('node-ssh');
 const path = require('path');
 const ssh = new nodessh();
+const extract = require('./lib/extract.js');
+const checkDir = require('./lib/readdir.js');
 
 const yargs = require('yargs')
   .command(
@@ -34,12 +36,16 @@ console.log('Installing tweak:', tweak);
 if(host.indexOf('@')>=0){
   host = yargs.host.split('@');
     console.log('Connecting to: ', host[0]+'@'+host[1]);
+    user = host[0];
+    host = host[1];
 }
 else {
   console.log('Connecting to:', user+'@'+host);
 }
 
-const extract = require('./lib/extract.js');
-
-console.log('Call extract from app.js');
-extract.deb(tweak, 'tmp');
+//Extract deb file into tmp folder
+extract.deb(tweak, 'tmp',() => {
+  checkDir.isSimple().then((answer)=>{
+    console.log('Is simple?',answer);
+  });
+});
